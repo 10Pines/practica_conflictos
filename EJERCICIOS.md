@@ -6,18 +6,20 @@ Este repo tiene ramas y escenarios pre-armados para practicar resolución de con
 
 ## Ejercicio 1 — Merge con conflicto
 
-**Situación:** Dos personas subieron el nivel de Aragorn en ramas distintas.
+**Situación:** Dos personas subieron el nivel de Aragorn en ramas distintas. Antes de abrir un PR, tenés que actualizar tu feature branch con los últimos cambios de main y resolver el conflicto ahí.
 
 ```bash
-git checkout main
-git merge feature/conflicto-merge
+git checkout feature/conflicto-merge
+git merge main
 # → Conflicto en personajes.txt
 # Resolvé el conflicto manualmente, luego:
 git add personajes.txt
-git commit -m "Merge: resuelvo conflicto de nivel de Aragorn"
+git commit -m "Merge: actualizo feature con cambios de main"
 ```
 
 Para cancelar en cualquier momento: `git merge --abort`
+
+> En GitFlow no se pushea directo a main. El flujo es: resolver conflictos en la feature branch → push → PR → merge a main.
 
 ---
 
