@@ -4,3 +4,4 @@
 - Legolas: arquero, nivel 8
 - Gimli: enano, nivel 7
 - Gandalf: mago, nivel 20
+- Boromir: guerrero, nivel 9
