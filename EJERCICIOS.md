@@ -95,6 +95,65 @@ git checkout -b recuperado <hash>
 
 ---
 
+## Flujos reales
+
+### GitHub Flow vs GitFlow
+
+| | GitHub Flow | GitFlow |
+|---|---|---|
+| **Complejidad** | Simple | Estructurado |
+| **Ramas principales** | `main` | `main` + `develop` |
+| **Ramas de trabajo** | `feature/*` | `feature/*`, `release/*`, `hotfix/*` |
+| **Deploy** | Cada merge a main | Solo desde `release/*` o `hotfix/*` |
+| **Ideal para** | Deploy continuo, SaaS | Releases versionadas, mobile, libs |
+
+**GitHub Flow** en la práctica:
+```
+main ──────────────────────────────────►
+         \                    /
+          feature/nueva-cosa ─
+```
+Todo sale de `main`, todo vuelve a `main` vía PR. Simple y efectivo para equipos con CI/CD.
+
+**GitFlow** en la práctica:
+```
+main    ─────────────────────────────────►  (solo releases)
+           \              /
+develop ────────────────────────────────►  (integración)
+              \      /    \       /
+               feature/*   release/*
+```
+`develop` es la rama de integración. Los features van ahí. Solo se toca `main` al liberar una versión.
+
+> Este repo usa **GitFlow**: el hook de pre-commit bloquea commits directos a `main`.
+> Los cambios entran via PR desde `feature/*`, `hotfix/*` o `release/*`.
+
+---
+
+### La regla de oro del rebase
+
+> **Nunca hagas rebase de una rama que ya fue publicada (pusheada) y que otros están usando.**
+
+**Por qué:** el rebase reescribe el historial (cambia los hashes de los commits). Si otra persona tiene esa rama, su historial y el tuyo van a divergir y el próximo `push` o `pull` va a ser un caos.
+
+```
+# MAL: rebase de una rama que ya está en el remoto y que otros tienen
+git checkout feature/mi-rama
+git rebase main
+git push --force   # ← destruye el historial del remoto, rompe el repo de tus compañeros
+```
+
+```
+# BIEN: rebase solo en ramas locales que nadie más tiene
+git checkout feature/mi-rama-local
+git rebase main   # ← nadie más tiene esta rama, es seguro
+git push          # primer push, sin --force
+```
+
+**Regla práctica:** si ya hiciste `push` de la rama, usá `merge` para integrar cambios. Guardá el `rebase` para limpiar *antes* del primer push.
+
+---
+
 ## Referencia rápida
 
 | Comando | Para qué |
