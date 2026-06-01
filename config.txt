@@ -1,0 +1,4 @@
+modo: produccion
+debug: false
+version: 2.0
+max_jugadores: 4
