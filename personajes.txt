@@ -4,3 +4,4 @@
 - Legolas: arquero élfico, nivel 8
 - Gimli: enano, nivel 7
 - Gandalf: mago, nivel 20
+- Arwen: elfa, nivel 16
