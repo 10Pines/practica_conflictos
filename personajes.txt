@@ -4,3 +4,8 @@
 - Legolas: arquero élfico, nivel 8
 - Gimli: enano, nivel 7
 - Gandalf: mago, nivel 20
+- Saruman: mago, nivel 18
+
+## Detalle: Saruman
+- Rango: Jefe del orden de los magos
+- Debilidad: el poder lo corrompe
