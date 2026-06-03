@@ -1,7 +1,7 @@
 # Lista de personajes
 
 - Aragorn: guerrero, nivel 12
-- Legolas: arquero, nivel 8
+- Legolas: arquero élfico, nivel 8
 - Gimli: enano, nivel 7
 - Gandalf: mago, nivel 20
 - Boromir: guerrero, nivel 9
