@@ -4,3 +4,10 @@
 - Legolas: arquero élfico, nivel 8
 - Gimli: enano, nivel 7
 - Gandalf: mago, nivel 20
+
+## Historias
+
+Gandalf llegó al grupo buscando aventura.
+Era conocido como Gandalf el Gris.
+Luego se convirtió en Gandalf el Blanco.
+Su caballo era Shadowfax, el mas veloz de todos.
